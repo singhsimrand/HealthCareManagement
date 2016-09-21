@@ -1,0 +1,49 @@
+{
+	"id":"v23467890",
+	"title":"Yesterdays Page Views",
+	"size":"small",
+	"data_duration":{
+		"type":"text/script",
+		"value":"window.com.nytimes.bizbook.utility_functions.format_date(\"MMMM Do YYYY\",\"subtract\",\"days\",1)"
+	},
+	"highlighted_data_point":{
+		"type":"text/json_api",
+		"url":"http://bi-datavis01.dev.ewr1.nytimes.com/api/redshift/runquery/etprd/SELECT%20count(*)%20as%20page_views%20FROM%20fact_datum_page_${utilities.format_date(\"YYYYMMDD\",\"subtract\",\"days\",1)}%20/?api_key=123 ",
+		"value":"${utilities.format_number_to_short(rows[0].row[0])}"
+	},
+	"notations":[
+		{
+			"type":"text/plain",
+			"value":"By source"
+		}
+	],
+	"chart_options":{
+		"options":{
+			"pieHole": "0.4",
+			"chartArea":{
+				"left":"5",
+				"top":"5",
+				"width":"100%",
+				"height":"100%"
+			},
+			"legend":{
+				"position":"none"
+			}
+		},
+		"type":"google_pieChart"
+	},
+	"chart_data":
+	{
+			"type": "text/json_nyt",
+	        "url": "http://bi-datavis01.dev.ewr1.nytimes.com/api/redshift/runquery/etprd/SELECT%20sourceapp%2C%20count(*)%20as%20page_views%20FROM%20fact_datum_page_20131003%20GROUP%20BY%20sourceapp%20order%20by%20page_views/?api_key=123"
+	},
+	"details":{
+		"filters_types":"query",
+		"filter_sql":"select * from table where ${TimeRange} ",
+		"filters":[
+			{"group":"TimeRange","key":"Weekly", "sql":"", "default":"true"},
+			{"group":"TimeRange","key":"Daily", "sql":""},
+			{"group":"TimeRange","key":"Monthly", "sql":""}
+		]
+	}
+}

@@ -1,0 +1,103 @@
+body {
+	background:#E0E0E0;
+}
+.navbar .nav > li {
+z-index: 10000;
+}
+.header {
+	height:100px;
+	background:#666;
+}
+.navigation_bar {
+	background: #000;
+	padding: 10px;
+}
+#charts_pane {
+	padding:20px;
+}
+#charts_pane:after
+{
+	content: ' ';
+	display: block;
+	clear: both;
+}
+.chart_module
+{
+	float:left;
+	border: 1px solid #C0C0C0;
+	background:#FFF;
+	padding:5px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+.chart_module_small
+{
+	height: 225px; 
+	width:196px; 
+}
+.chart_module_medium
+{
+	width:400px; 
+	height: 458px; 
+}
+.chart_module_large {
+	width:604px; 
+	height: 691px; 
+}
+
+
+.chart_module h2 {
+	padding:0px;
+	margin:0px 0px 3px 0px;
+	font-size:12px;
+	font-weight:bold;
+}
+.chart_module .highlighted_data_point {
+	font-size:18px;
+	font-weight:bold;
+}
+.chart_module .notation {
+	font-size:10px;
+	font-weight:normal;
+	color:#ccc;
+}
+.chart_module .data_relationship {
+	font-size:8px;
+	color:#ccc;
+}
+.chart_module .person_name {
+	font-size:8px;
+	font-weight:bold;
+	white-space: nowrap;
+}
+.chart_module .data_duration {
+	font-size:10px;
+	font-weight:normal;
+	color:#ccc;
+}
+
+
+.chart_area {
+	/*border:1px solid red;*/
+	position:absolute;
+	bottom:24px;
+	left:5px;
+	text-align:center;
+	vertical-align:middle;
+	/*
+	135 = 1 notation
+	123 = 2 notation
+	111 = 3 notation
+	*/
+}
+
+.chart_module_small .chart_area {
+	width:185px;
+}
+
+.chart_module_medium .chart_area {
+	width:388px;
+}
+.chart_module_large .chart_area {
+	width:592px;
+}

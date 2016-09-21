@@ -1,0 +1,59 @@
+{
+	"id":"v123468898742",
+	"title":"Page view",
+	"size":"small",
+	"data_duration":{
+		"type":"text/plain",
+		"value":"by Week"
+	},
+	"notations":[
+		{
+			"type":"text/plain",
+			"value":"For past 12 weeks"
+		}
+	],
+	"chart_options":{
+		"options":{
+			"axisTitlesPosition":"none",
+			"chartArea":{
+				"width":"100%"
+			},
+			"vAxis":{
+				"gridlines": {"color": "#FFF"}
+			},
+			"hAxis": {
+				"gridlines": {"color": "#FFF"}
+			},
+			"legend":{
+				"position":"none"
+			}
+		},
+		"type":"google_columnChart"
+	},
+	"chart_data":
+	{
+			"type":"text/manual_tsv",
+			"data":"week\tpage_views\n25\t192262389\n26\t198998684\n27\t176481037\n28\t176733184\n29\t170742267\n30\t169926818\n31\t170757022\n32\t166736292\n33\t157038830\n34\t163741840\n35\t165950436\n36\t153925798",
+			"query":{
+				"sql":" ${product.key}  ${utilities.format_date(\"YYYYMMDD\",\"subtract\",\"months\",1)} }  ",
+				"filter_groups":[
+					{
+						"key":"product",
+						"label":"Products",
+						"filters":[
+							{"key":"web","label":"Website","english":"...","sql":" select * from table A where ${frequency.key} = x "},
+							{"key":"mobile_web","label":"Mobile Web (m.nytimes.com)","english":"...","sql":" select * from table B where ${frequency_selected} = x "}
+						]
+					},
+					{
+						"key":"frequency",
+						"label":"Frequency",
+						"filters":[
+							{"key":"daily","label":"Daily","english":"...","sql":" "},
+							{"key":"weekly","label":"Weekly","english":"...","sql":"  "}
+						]
+					}
+				]
+			}
+	}
+}

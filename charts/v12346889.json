@@ -1,0 +1,42 @@
+{
+    "id": "v12346889",
+    "title": "Page view",
+    "size": "small",
+    "data_duration": {
+        "type": "text/plain",
+        "value": "by Week"
+    },
+    "notations": [
+        {
+            "type": "text/plain",
+            "value": "For past 12 weeks"
+        }
+    ],
+    "chart_options": {
+        "options": {
+            "axisTitlesPosition": "none",
+            "chartArea": {
+                "width": "100%"
+                
+            },
+            "vAxis": {
+                "gridlines": {
+                    "color": "#FFF"
+                }
+            },
+            "hAxis": {
+                "gridlines": {
+                    "color": "#FFF"
+                }
+            },
+            "legend": {
+                "position": "none"
+            }
+        },
+        "type": "google_columnChart"
+    },
+    "chart_data": {
+        "type": "text/json_nyt",
+        "url": "http://bi-datavis01.dev.ewr1.nytimes.com/api/redshift/runquery/etprd/select%20week%2C%20sum(page_views)%20as%20page_views%20from%20(%20SELECT%20EXTRACT(WEEK%20FROM%20eventdate)%20as%20week%2C%20count(*)%20as%20page_views%20FROM%20fact_datum_page_201306%20where%20EXTRACT(WEEK%20FROM%20eventdate)%20%3E%2024%20group%20by%20week%20UNION%20SELECT%20EXTRACT(WEEK%20FROM%20eventdate)%20as%20week%2C%20count(*)%20as%20page_views%20FROM%20fact_datum_page_201307%20where%20EXTRACT(WEEK%20FROM%20eventdate)%20%3E%2024%20group%20by%20week%20UNION%20SELECT%20EXTRACT(WEEK%20FROM%20eventdate)%20as%20week%2C%20count(*)%20as%20page_views%20FROM%20fact_datum_page_201308%20where%20EXTRACT(WEEK%20FROM%20eventdate)%20%3E%2024%20group%20by%20week%20UNION%20SELECT%20EXTRACT(WEEK%20FROM%20eventdate)%20as%20week%2C%20count(*)%20as%20page_views%20FROM%20fact_datum_page_201309%20where%20EXTRACT(WEEK%20FROM%20eventdate)%20%3E%2024%20group%20by%20week%20)%20group%20by%20week%20order%20by%20week/?api_key=123"
+    }
+}
